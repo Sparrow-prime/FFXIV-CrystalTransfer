@@ -57,4 +57,20 @@ System.MissingMethodException: Method not found: 'Void Dalamud.Interface.Windowi
 
 ## 推送记录
 
-（推送完成后补充）
+### 1.0.1（2026-10-21）
+
+| 项 | 内容 |
+| ---- | ---- |
+| 提交 | `fad56d7`：`1.0.1: 修复宿主 ImGui 绑定被复制导致的插件加载失败` |
+| tag | `1.0.1`（annotated，指向 `fad56d7`；无 `v` 前缀，按用户当轮指定） |
+| Release | <https://github.com/Sparrow-prime/FFXIV-CrystalTransfer/releases/tag/1.0.1>（标题 `1.0.1`，非 draft / 非 prerelease） |
+| 附件 | `latest.zip`，29 400 字节，SHA256 `3ACD7627660C44B76D88781EBC2D5833EDB905FCF0556BD3CFB360295D860B92`（远端 digest 一致） |
+| 推送方式 | `git push` 直推 `main` ＋ `1.0.1` tag；凭据从 `E:\Code\Personal file` 读取，未落盘、输出已脱敏；本机会话 schannel 不可用，推送时 `-c http.sslBackend=openssl` |
+
+### 1.0.0（2026-08-17）
+
+| 项 | 内容 |
+| ---- | ---- |
+| 提交 | `164fc18`：`feat: FFXIV-CrystalTransfer v1.0.0 水晶自动存入雇员插件` |
+| tag | `v1.0.0`（历史命名，带 `v` 前缀） |
+| Release | <https://github.com/Sparrow-prime/FFXIV-CrystalTransfer/releases/tag/v1.0.0>（无附件） |
