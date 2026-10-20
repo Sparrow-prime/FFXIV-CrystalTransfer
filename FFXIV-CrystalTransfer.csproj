@@ -6,7 +6,7 @@
     <AssemblySearchPaths>$(APPDATA)\XIVLauncherCN\addon\Hooks\dev\;$(AssemblySearchPaths)</AssemblySearchPaths>
 
     <!-- Manifest fields（参考 SamplePlugin 模板） -->
-    <Version>1.0.0.0</Version>
+    <Version>1.0.1.0</Version>
     <Author>Sparrow-prime</Author>
     <Name>FFXIV-CrystalTransfer</Name>
     <Punchline>Transfer selected crystals from your inventory to your retainers automatically.</Punchline>
@@ -26,9 +26,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- 显式引用 XIVLauncherCN（DailyRoutines 改版）提供的 ImGui 绑定 -->
-    <Reference Include="Dalamud.Bindings.ImGui"><HintPath>$(APPDATA)\XIVLauncherCN\addon\Hooks\dev\Dalamud.Bindings.ImGui.dll</HintPath></Reference>
-    <Reference Include="Dalamud.Bindings.ImPlot"><HintPath>$(APPDATA)\XIVLauncherCN\addon\Hooks\dev\Dalamud.Bindings.ImPlot.dll</HintPath></Reference>
-    <Reference Include="Dalamud.Bindings.ImGuizmo"><HintPath>$(APPDATA)\XIVLauncherCN\addon\Hooks\dev\Dalamud.Bindings.ImGuizmo.dll</HintPath></Reference>
+    <!-- 显式引用 XIVLauncherCN（DailyRoutines 改版）提供的 ImGui 绑定。
+         Private=false 必须保留：这些是宿主（Dalamud）自带的程序集，若随插件复制到输出目录，
+         插件的 AssemblyLoadContext 会加载自己那份副本，导致 ImGuiCond 等类型出现两份，
+         运行时调用 Window.set_SizeCondition 等成员即抛 MissingMethodException、插件加载失败。 -->
+    <Reference Include="Dalamud.Bindings.ImGui"><HintPath>$(APPDATA)\XIVLauncherCN\addon\Hooks\dev\Dalamud.Bindings.ImGui.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Dalamud.Bindings.ImPlot"><HintPath>$(APPDATA)\XIVLauncherCN\addon\Hooks\dev\Dalamud.Bindings.ImPlot.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Dalamud.Bindings.ImGuizmo"><HintPath>$(APPDATA)\XIVLauncherCN\addon\Hooks\dev\Dalamud.Bindings.ImGuizmo.dll</HintPath><Private>false</Private></Reference>
   </ItemGroup>
 </Project>
